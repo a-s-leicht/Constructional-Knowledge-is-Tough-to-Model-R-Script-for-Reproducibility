@@ -36,6 +36,7 @@
 # Install packages if they are not already installed (run once)
 # install.packages("ggplot2")
 # install.packages("ggthemes")
+# install.packages("viridis")
 # install.packages("lme4")
 # install.packages("emmeans")
 # install.packages("rcompanion")
@@ -51,6 +52,7 @@ installed.packages()
 # Load the required packages into the R session
 library(ggplot2)
 library(ggthemes)
+library(viridis)
 library(lme4)
 library(emmeans)
 library(rcompanion)
@@ -460,8 +462,8 @@ ggplot(df_rel_freq, aes(x = lexical_item, y = alternant_type, fill = rel_freq)) 
     y = "Alternant Type",
     fill = "Rel. Freq. (per 1M)"
   ) +
-  theme_grey() +
-  scale_fill_gradient(trans = "sqrt")
+  theme_bw() +
+  scale_fill_viridis_c(trans = "sqrt")
 
 
 # ==============================================================================
@@ -662,8 +664,8 @@ ggplot(df_prop_spk_altt_age, aes(x = age_range, y = proportion, fill = alternant
     y = "Proportion",
     fill = "Alternant Type"
   ) +
-  theme_grey() +
-  scale_fill_hue()
+  theme_bw() +
+  scale_fill_viridis_d()
 
 # Plot: socio-economic category
 ggplot(df_prop_spk_altt_sec, aes(x = socio_economic_category, y = proportion, fill = alternant_type)) +
@@ -674,8 +676,8 @@ ggplot(df_prop_spk_altt_sec, aes(x = socio_economic_category, y = proportion, fi
     y = "Proportion",
     fill = "Alternant Type"
   ) +
-  theme_grey() +
-  scale_fill_hue()
+  theme_bw() +
+  scale_fill_viridis_d()
 
 # Plot: education
 ggplot(df_prop_spk_altt_edu, aes(x = education, y = proportion, fill = alternant_type)) +
@@ -686,8 +688,8 @@ ggplot(df_prop_spk_altt_edu, aes(x = education, y = proportion, fill = alternant
     y = "Proportion",
     fill = "Alternant Type"
   ) +
-  theme_grey() +
-  scale_fill_hue()
+  theme_bw() +
+  scale_fill_viridis_d()
 
 
 # ==============================================================================
@@ -774,13 +776,13 @@ ggplot(df_emm_add_mn_altt_lex_gen, aes(x = genre, y = prob, colour = lexical_ite
     position = position_dodge(width = 0.3)
   ) +
   labs(
-    title = "Predicted Probabilities of Raising by Genre and Lexical Item with Confidence Intervals (Additive Model)",
+    title = "Predicted Probabilities of Raising by Genre and Lexical Item with Confidence Intervals",
     x = "Genre",
     y = "Predicted Probability (Raising)",
     colour = "Lexical Item"
   ) +
-  theme_grey() +
-  scale_colour_hue()
+  theme_bw() +
+  scale_colour_viridis_d()
 
 
 # ------------------------------------------------------------------------------
@@ -820,8 +822,8 @@ ggplot(df_prop_spk_altt_isr, aes(x = inter_speaker_relationships, y = proportion
     y = "Proportion",
     fill = "Alternant Type"
   ) +
-  theme_grey() +
-  scale_fill_hue()
+  theme_bw() +
+  scale_fill_viridis_d()
 
 
 # ------------------------------------------------------------------------------
@@ -864,9 +866,9 @@ ggplot(data_restricted, aes(x = alternant_type, y = tough_subject_length, fill =
   scale_y_continuous(
     breaks = c(0:5, 10, 15)
   ) +
-  theme_grey() +
-  scale_fill_hue() +
-  scale_colour_hue()
+  theme_bw() +
+  scale_fill_viridis_d() +
+  scale_colour_viridis_d()
 
 
 # ------------------------------------------------------------------------------
@@ -964,9 +966,9 @@ ggplot(
   scale_x_continuous(
     breaks = c(0:5, 10, 15)
   ) +
-  theme_grey() +
-  scale_colour_hue() +
-  scale_fill_hue()
+  theme_bw() +
+  scale_colour_viridis_d() +
+  scale_fill_viridis_d()
 
 
 # ------------------------------------------------------------------------------
@@ -1018,6 +1020,7 @@ sessionInfo()
 print(citation(), bibtex = TRUE)
 print(citation("ggplot2"), bibtex = TRUE)
 print(citation("ggthemes"), bibtex = TRUE)
+print(citation("viridis"), bibtex = TRUE)
 print(citation("lme4"), bibtex = TRUE)
 print(citation("emmeans"), bibtex = TRUE)
 print(citation("rcompanion"), bibtex = TRUE)
